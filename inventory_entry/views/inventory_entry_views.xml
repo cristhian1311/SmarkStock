@@ -1,0 +1,61 @@
+<odoo>
+    <record id="view_inventory_entry_form" model="ir.ui.view">
+        <field name="name">inventory.entry.form</field>
+        <field name="model">inventory.entry</field>
+        <field name="arch" type="xml">
+            <form string="Entrada de Inventario">
+                <header>
+                    <button name="action_create_product_register" string="Crear Producto Personalizado" type="object" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="date"/>
+                        <field name="product_register_id"/>
+                        <field name="quantity"/>
+                        <field name="supplier"/>
+                        <field name="unit_cost"/>
+                        <field name="total_cost"/>
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_inventory_entry_tree" model="ir.ui.view">
+        <field name="name">inventory.entry.tree</field>
+        <field name="model">inventory.entry</field>
+        <field name="arch" type="xml">
+            <tree string="Entradas de Inventario">
+                <field name="date"/>
+                <field name="product_register_id"/>
+                <field name="quantity"/>
+                <field name="supplier"/>
+                <field name="total_cost"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="action_inventory_entry" model="ir.actions.act_window">
+        <field name="name">Entradas de Inventario</field>
+        <field name="res_model">inventory.entry</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+    <menuitem id="menu_inventory_root"
+              name="Inventario"
+              web_icon="fa fa-cube"
+              sequence="5"/>
+
+
+    <menuitem id="menu_inventory_entry"
+              name="Entradas de Inventario"
+              parent="menu_inventory_root"
+              action="action_inventory_entry"
+              sequence="10"/>
+
+</odoo>

@@ -1,0 +1,46 @@
+<odoo>
+    <record id="view_inventory_movement_tree" model="ir.ui.view">
+        <field name="name">inventory.movement.tree</field>
+        <field name="model">inventory.movement</field>
+        <field name="arch" type="xml">
+            <tree string="Movimientos de Inventario">
+                <field name="date"/>
+                <field name="product_register_id"/>
+                <field name="movement_type"/>
+                <field name="quantity"/>
+                <field name="is_sale"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_inventory_movement_form" model="ir.ui.view">
+        <field name="name">inventory.movement.form</field>
+        <field name="model">inventory.movement</field>
+        <field name="arch" type="xml">
+            <form string="Movimiento de Inventario">
+                <sheet>
+                    <group>
+                        <field name="date"/>
+                        <field name="product_register_id"/>
+                        <field name="movement_type"/>
+                        <field name="quantity"/>
+                    </group>
+                    <group>
+                        <field name="origin_model" readonly="1"/>
+                        <field name="origin_id" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_inventory_movement" model="ir.actions.act_window">
+        <field name="name">Movimientos de Inventario</field>
+        <field name="res_model">inventory.movement</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_inventory_movement_root" name="Movimientos" sequence="20"/>
+    <menuitem id="menu_inventory_movements" name="Movimientos" parent="menu_inventory_movement_root" action="action_inventory_movement" sequence="10"/>
+
+</odoo>

@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_inventory_entry_all,inventory.entry.all,model_inventory_entry,,1,1,1,1
+access_inventory_movement_all,inventory.movement.all,model_inventory_movement,,1,1,1,1
+access_inventory_movement_sale,inventory.movement.sale,model_inventory_movement,,1,1,1,1

@@ -1,0 +1,70 @@
+<odoo>
+    <record id="view_product_register_form" model="ir.ui.view">
+        <field name="name">product.register.form</field>
+        <field name="model">product.register</field>
+        <field name="arch" type="xml">
+            <form string="Registro de Producto">
+                <sheet>
+                    <field name="image_1920" widget="image" class="oe_avatar" options="{'preview_image': 'image_128'}"/>
+                    
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Nombre del Producto..."/>
+                        </h1>
+                    </div>
+                    
+                    <group>
+                        <group>
+                            <field name="standard_price"/>
+                            <field name="barcode"/>
+                        </group>
+                        <group>
+                            <field name="expiration_date"/>
+                            <field name="type"/>
+                            <field name="active"/>
+                        </group>
+                        <group>
+                            <field name="quantity" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Guardar" class="btn-primary" special="save"/>
+                    <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_product_register_tree" model="ir.ui.view">
+        <field name="name">product.register.tree</field>
+        <field name="model">product.register</field>
+        <field name="arch" type="xml">
+            <tree string="Registros de Productos">
+                <field name="image_128" widget="image" options="{'size': [50, 50]}"/>
+                <field name="name"/>
+                <field name="standard_price"/>
+                <field name="barcode"/>
+                <field name="type"/>
+                <field name="quantity"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_product_register" model="ir.actions.act_window">
+        <field name="name">Registro de Productos</field>
+        <field name="res_model">product.register</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_product_register_root"
+              name="Registro de Productos"
+              web_icon="fa fa-cube"
+              sequence="6"/>
+
+    <menuitem id="menu_product_register"
+              name="Registro de Productos"
+              parent="menu_product_register_root"
+              action="action_product_register"
+              sequence="10"/>
+</odoo>

@@ -1,0 +1,50 @@
+<odoo>
+    <record id="view_inventory_exit_form" model="ir.ui.view">
+        <field name="name">inventory.exit.form</field>
+        <field name="model">inventory.exit</field>
+        <field name="arch" type="xml">
+            <form string="Salida de Inventario">
+                <sheet>
+                    <group>
+                        <field name="date"/>
+                        <field name="product_register_id"/>
+                        <field name="quantity"/>
+                        <field name="customer"/>
+                        <field name="unit_price"/>
+                        <field name="total_price"/>
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_inventory_exit_tree" model="ir.ui.view">
+        <field name="name">inventory.exit.tree</field>
+        <field name="model">inventory.exit</field>
+        <field name="arch" type="xml">
+            <tree string="Salidas de Inventario">
+                <field name="date"/>
+                <field name="product_register_id"/>
+                <field name="quantity"/>
+                <field name="customer"/>
+                <field name="total_price"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="action_inventory_exit" model="ir.actions.act_window">
+        <field name="name">Salidas de Inventario</field>
+        <field name="res_model">inventory.exit</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem id="menu_inventory_exit"
+              name="Salidas de Inventario"
+              parent="inventory_entry.menu_inventory_root"
+              action="action_inventory_exit"
+              sequence="20"/>
+</odoo>
